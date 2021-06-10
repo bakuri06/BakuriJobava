@@ -13,19 +13,14 @@ const List = ({data,setData}) => {
         }))
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        setData(
-            [
-                {
-                    editing:false,
-                    title:title,
-                    checked:false,
-                    id:Math.random()*1000
-                },
-                ...data
-            ]
-        );
+    const saveChanges = (index) => {
+        setData(data.map(el => {
+            if(el.id===data[index].id){
+                el.editing=false;
+                el.title=title;
+            }
+            return el;
+        }))
     }
 
     const deleteToDo = (index) => {
@@ -47,7 +42,7 @@ const List = ({data,setData}) => {
                     <li key={index} className='li'>
                         <input type='checkbox' checked={elem.checked} onChange={(e) => toggleStatus(index)}/>
                             {elem.editing ?
-                             <Edit submit={handleSubmit} title={title} setTitle={setTitle}/> : elem.title}
+                             <Edit submit={() => saveChanges(index)} title={title} setTitle={setTitle}/> : elem.title}
 
                             <div className='li_div'>
                                 <Button size="small" onClick={() => {
