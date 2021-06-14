@@ -38,6 +38,9 @@
 }
 
 .main-container{
-  width:500px;
+  position: relative;
+  width:950px;
   margin:0 auto;
+  display: flex;
+  flex-wrap: wrap;
 }
