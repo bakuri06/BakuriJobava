@@ -35,7 +35,7 @@ export default function Modal(city, clicked) {
                             <div className="overlay"></div>
                             <div className="modal-content">
                                 <div className="weather-oneday">
-                                    {typeof data != 'undefined' ? data.map(dataa => <div key={'uniq'}>
+                                    {data.map(dataa => <div key={'uniq'}>
                                         <h2 className='forBorder'>{dataa.forecast.forecastday[0].date}</h2>
                                         <ul className='for_flex'>
                                             <li>{dataa.forecast.forecastday[0].hour[8].time}</li>
@@ -70,7 +70,7 @@ export default function Modal(city, clicked) {
                                             <li><p className='for_padding'>{dataa.forecast.forecastday[0].day.condition.text}</p></li>
                                         </ul>
 
-                                    </div>) : ''
+                                    </div>)
                                     }
                                 </div>
                                 <button className='close-modal' onClick={() => { setmodal(!modal) }}>
