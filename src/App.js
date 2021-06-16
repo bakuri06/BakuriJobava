@@ -1,13 +1,12 @@
 import './App.css';
-import React, {useState,useEffect} from 'react'
+import React, { useState } from 'react'
 import Today from './toDos/Today'
 import Week from './toDos/Week'
-import Modal from './toDos/Modal'
 import Button from '@material-ui/core/Button';
 
 const App = () => {
   const [city, setCity] = useState('Tbilisi');
-  let [clicked, setClicked] = useState(false);
+  const [clicked, setClicked] = useState(false);
 
   let handleChange = (e) => {
     e.preventDefault();
@@ -16,19 +15,35 @@ const App = () => {
 
   const EditValue = () => {
     setClicked(!clicked);
-    console.log(clicked);
+  }
+
+  const dontRefresh = (e) => {
+    e.preventDefault();
+    setClicked(!clicked);
+  }
+  const Render = () => {
+    if (city !== 'undefined') {
+      return (
+        <div>
+          <form onSubmit={dontRefresh}className='inputclass'>
+            <input type="text" value={city} onChange={handleChange}></input>
+            <Button onClick={() => EditValue()} variant="contained" color="primary">Search</Button>
+          </form>
+          <div className="main-container">
+            <Today city={city} clicked={clicked} />
+            <Week city={city} clicked={clicked} />
+          </div>
+        </div>
+      )
+    } else {
+      return (
+        ""
+      )
+    }
   }
   return (
-
-    <div className="main-container">
-      <div className='empty'>
-          <input type="text" value={city} onChange={handleChange}></input>
-          <Button onClick={() => EditValue()} variant="contained" color="primary">Search</Button>
-      </div>
-      <Today city={city} clicked={clicked} handleChange={handleChange} EditValue={EditValue}/>
-      <Week city={city} setCity={setCity} clicked={clicked} setClicked={setClicked} />
-      <Modal city={city} setCity={setCity} clicked={clicked} setClicked={setClicked}/>
-
+    <div>
+      {Render()}
     </div>
   )
 }
