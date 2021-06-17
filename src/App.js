@@ -6,7 +6,7 @@ import Button from '@material-ui/core/Button';
 
 const App = () => {
   const [city, setCity] = useState('Tbilisi');
-  const [clicked, setClicked] = useState(false);
+  const [searchValue, setSearchValue] = useState('');
 
   let handleChange = (e) => {
     e.preventDefault();
@@ -14,37 +14,25 @@ const App = () => {
   }
 
   const EditValue = () => {
-    setClicked(!clicked);
+    setSearchValue(city);
   }
 
   const dontRefresh = (e) => {
     e.preventDefault();
-    setClicked(!clicked);
+    setSearchValue(city);
   }
-  const Render = () => {
-    if (city !== 'undefined') {
-      return (
-        <div>
+
+  return (
+      <div>
           <form onSubmit={dontRefresh}className='inputclass'>
             <input type="text" value={city} onChange={handleChange}></input>
             <Button onClick={() => EditValue()} variant="contained" color="primary">Search</Button>
           </form>
           <div className="main-container">
-            <Today city={city} clicked={clicked} />
-            <Week city={city} clicked={clicked} />
+            <Today city={city} searchValue={searchValue} />
+            <Week city={city} searchValue={searchValue} />
           </div>
         </div>
-      )
-    } else {
-      return (
-        ""
-      )
-    }
-  }
-  return (
-    <div>
-      {Render()}
-    </div>
   )
 }
 

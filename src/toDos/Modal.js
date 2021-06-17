@@ -2,9 +2,11 @@ import React, { useState, useEffect } from "react";
 import "./modal.css";
 import Button from '@material-ui/core/Button';
 
-export default function Modal(city, clicked) {
+
+export default function Modal(city, searchValue) {
     const [modal, setmodal] = useState(false);
     const [data, setData] = useState([]);
+    const [error,setError]= useState(false);
 
     const toggleModal = () => {
         setmodal(!modal)
@@ -13,6 +15,7 @@ export default function Modal(city, clicked) {
     const key = 'b6820c61804b4edda5244706211406';
 
     console.log(city);
+    console.log(error);
 
     useEffect(() => {
         fetch(`http://api.weatherapi.com/v1/forecast.json?key=${key}&q=Tbilisi&days=7&aqi=no&alerts=yes`)
@@ -22,20 +25,20 @@ export default function Modal(city, clicked) {
             })
             .catch(err => {
                 console.log(err)
+                setError('404 not found');
+                setData([]);
             })
-    }, [clicked])
+    }, [searchValue])
 
-    const Render = () => {
-        if (city !== 'undefined') {
-            return (
-                <div className="main-btn-modal">
+    return (
+        <div>
+            <div className="main-btn-modal">
                     <Button onClick={() => toggleModal()} variant="contained" color="secondary">Hourly Forecast</Button>
                     {modal && (
                         <div className="modal">
                             <div className="overlay"></div>
                             <div className="modal-content">
-                                <div className="weather-oneday">
-                                    {data.map(dataa => <div key={'uniq'}>
+                            {!error && data && data.map(dataa => <div key={'uniq'}>
                                         <h2 className='forBorder'>{dataa.forecast.forecastday[0].date}</h2>
                                         <ul className='for_flex'>
                                             <li>{dataa.forecast.forecastday[0].hour[8].time}</li>
@@ -72,7 +75,6 @@ export default function Modal(city, clicked) {
 
                                     </div>)
                                     }
-                                </div>
                                 <button className='close-modal' onClick={() => { setmodal(!modal) }}>
                                     <i className="fa fa-window-close"></i>
                                 </button>
@@ -81,18 +83,7 @@ export default function Modal(city, clicked) {
                         </div>
                     )}
 
-
                 </div>
-            )
-        } else {
-            return '';
-        }
-
-    }
-
-    return (
-        <div>
-            {Render()}
         </div>
     )
 }
