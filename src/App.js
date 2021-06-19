@@ -23,16 +23,16 @@ const App = () => {
   }
 
   return (
-      <div>
-          <form onSubmit={dontRefresh}className='inputclass'>
-            <input type="text" value={city} onChange={handleChange}></input>
-            <Button onClick={() => EditValue()} variant="contained" color="primary">Search</Button>
-          </form>
-          <div className="main-container">
-            <Today city={city} searchValue={searchValue} />
-            <Week city={city} searchValue={searchValue} />
-          </div>
-        </div>
+    <div>
+      <form onSubmit={dontRefresh} className='inputclass'>
+        <input type="text" value={city} onChange={handleChange}></input>
+        <Button onClick={() => EditValue()} variant="contained" color="primary">Search</Button>
+      </form>
+      <div className="main-container">
+        <Today city={city} searchValue={searchValue} />
+        <Week city={city} searchValue={searchValue} />
+      </div>
+    </div>
   )
 }
 
