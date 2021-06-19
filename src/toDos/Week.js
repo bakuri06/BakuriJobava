@@ -48,8 +48,6 @@ const Week = ({ city, searchValue }) => {
       */
 
 
-    //aq data ar icvlebaa
-
 
     return (
         <div>
