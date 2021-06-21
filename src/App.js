@@ -1,7 +1,7 @@
 import './App.css';
 import React, { useState } from 'react'
-import Today from './toDos/Today'
-import Week from './toDos/Week'
+import Today from './Weather/Today'
+import Week from './Weather/Week'
 import Button from '@material-ui/core/Button';
 
 const App = () => {
@@ -13,10 +13,6 @@ const App = () => {
     setCity(e.target.value);
   }
 
-  const EditValue = () => {
-    setSearchValue(city);
-  }
-
   const dontRefresh = (e) => {
     e.preventDefault();
     setSearchValue(city);
@@ -26,7 +22,7 @@ const App = () => {
     <div>
       <form onSubmit={dontRefresh} className='inputclass'>
         <input type="text" value={city} onChange={handleChange}></input>
-        <Button onClick={() => EditValue()} variant="contained" color="primary">Search</Button>
+        <Button type='submit' variant="contained" color="primary">Search</Button>
       </form>
       <div className="main-container">
         <Today city={city} searchValue={searchValue} />
