@@ -1,35 +1,13 @@
-import './App.css';
-import React, { useState } from 'react'
-import Content from './Itunes/Content';
-import './Itunes/music.css'
+import React from 'react';
+import SignupForm from './Formik/Form';
+import './App.css'
+
 const App = () => {
-  const [music, setMusic] = useState();
-  const [searchValue, setSearchValue] = useState();
-
-  const handleChange = (e) => {
-    e.preventDefault();
-    setMusic(e.target.value);
-  }
-
-  const dontRefresh = (e) => {
-    e.preventDefault();
-    setSearchValue(music);
-  }
-  return (
-
-    <div className="main-container">
-      <form onSubmit={dontRefresh} className='searchContainer'>
-        <input type="text" id='uniq' value={music} onChange={handleChange}></input>
-        <button className='but' type='submit'>Search</button>
-      </form>
-      <Content music={music} searchValue={searchValue} />
+  return(
+    <div className='main-container'>
+      <SignupForm />
     </div>
   )
-
-}
-
+};
 
 export default App;
-
-
-
