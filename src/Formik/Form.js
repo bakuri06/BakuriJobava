@@ -1,125 +1,89 @@
 import React from 'react';
-import {useFormik} from 'formik';
+import { Formik, Form, useFormik } from 'formik';
 import * as Yup from 'yup';
+import { Input } from './Input/Input';
+import './Form.scss'
+import Loader from './Components/Loader'
 
-const SignupForm = () => {
-  const formik = useFormik({
-    initialValues: {
-      firstName: '',
-      lastName: '',
-      email: '',
-      confirmEmail: '',
-      password: '',
-      confirmPass: ''
-    },
-    validationSchema: Yup.object({
-      firstName: Yup.string()
-        .max(15, 'Must be 15 characters or less')
-        .required('Required'),
-      lastName: Yup.string()
-        .max(20, 'Must be 20 characters or less')
-        .required('Required'),
-      email: Yup.string().email('Invalid email address').required('Required'),
-      password: Yup.string()
-        .min(8, 'Must be 8 characters or more')
-        .required('Required'),
-      confirmPass: Yup.string()
-        .oneOf([Yup.ref('password')], 'Doesn\'t Confirm')
-        .required('Required'),
-      confirmEmail: Yup.string()
-        .oneOf([Yup.ref('email')], 'Doesn\'t Confirm')
-        .required('Required')
-    }),
-    onSubmit: values => {
-      alert(JSON.stringify(values, null, 2));
-    },
-  });
+function Registration() {
+
+  const Information = (formik) => {
+    console.log(formik);
+  }
+  const { status, setStatus, resetForm, isSubmitting, setSubmitting, setErrors } = useFormik({});
+  const validate = Yup.object({
+    FirstName: Yup.string().max(15, 'Must be 15 characters or less').required('Required'),
+    LastName: Yup.string().max(20, 'Must be 20 characters or less').required('Required'),
+    Email: Yup.string().email('Email is invalid').required('Email is required'),
+    ConfirmEmail: Yup.string()
+      .oneOf([Yup.ref('Email'), null], 'Email must match').required('Confirm email is required'),
+    Password: Yup.string().min(8, 'Must be 8 characters or more').required('Password is required'),
+    ConfirmPassword: Yup.string()
+      .oneOf([Yup.ref('Password'), null], 'Password must match').required('Confirm password is required'),
+  })
   return (
-    <form className='main-container' onSubmit={formik.handleSubmit}>
+    <Formik
+      initialValues={{
+        FirstName: '',
+        LastName: '',
+        Email: '',
+        ConfirmEmail: '',
+        Password: '',
+        ConfirmPassword: ''
+      }}
+      validationSchema={validate}
+      onSubmit={values => {
+        fetch('https://reqres.in/api/users', {
+          method: "POST",
+          body: JSON.stringify(
+            {
+              FirstName: values.FirstName,
+              LastName: values.LastName,
+              Email: values.Email,
+              ConfirmEmail: values.ConfirmEmail,
+              Password: values.Password,
+              ConfirmPassword: values.ConfirmPassword,
+            }
+          )
+        })
+          .then(res => res.json())
+          .then(json => {
+            console.log(json);
+            setStatus(true);
+            resetForm();
+          }).catch((error) => {
+            console.log(error)
+            setErrors({ main: 'Error' })
+          })
+          .finally(() => {
+            setSubmitting(true);
+          })
+      }
+      }
+    >
+      {formik => (
+        <div className='main'>
+          {status ? (<div>Loading</div>) : (
+            <Loader isLoading={isSubmitting}>
+              <div>
+                <h1 className="register">Register</h1>
+                <Form>
+                  <Input label="FirstName" name="FirstName" type="text" />
+                  <Input label="LastName" name="LastName" type="text" />
+                  <Input label="Email" name="Email" type="email" />
+                  <Input label="ConfirmEmail" name="ConfirmEmail" type="email" />
+                  <Input label="Password" name="Password" type="password" />
+                  <Input label="ConfirmPassword" name="ConfirmPassword" type="password" />
+                  <button onClick={() => Information(formik)} className="button registerButton" type="submit">Register</button>
+                  <button className="button reset" type="reset">Reset</button>
+                </Form>
+              </div>
+            </Loader>
+          )}
+        </div>
+      )}
+    </Formik>
+  )
+}
 
-      <label htmlFor="firstName">First Name</label>
-      <input
-        id="firstName"
-        name="firstName"
-        type="text"
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        value={formik.values.firstName}
-      />
-      {formik.touched.firstName && formik.errors.firstName ? (
-        <div>{formik.errors.firstName}</div>
-      ) : null}
-
-      <label htmlFor="lastName">Last Name</label>
-      <input
-        id="lastName"
-        name="lastName"
-        type="text"
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        value={formik.values.lastName}
-      />
-      {formik.touched.lastName && formik.errors.lastName ? (
-        <div>{formik.errors.lastName}</div>
-      ) : null}
-
-      <label htmlFor="email">Email Address</label>
-      <input
-        id="email"
-        name="email"
-        type="email"
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        value={formik.values.email}
-      />
-      {formik.touched.email && formik.errors.email ? (
-        <div>{formik.errors.email}</div>
-      ) : null}
-
-      <label htmlFor="confirmEmail">Confirm Email</label>
-      <input
-        id="confirmEmail"
-        name="confirmEmail"
-        type="text"
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        value={formik.values.confirmEmail}
-      />
-      {formik.touched.confirmEmail && formik.errors.confirmEmail ? (
-        <div>{formik.errors.confirmEmail}</div>
-      ) : null}
-
-      <label htmlFor="password">Password</label>
-      <input
-        id="password"
-        name="password"
-        type="password"
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        value={formik.values.password}
-      />
-      {formik.touched.password && formik.errors.password ? (
-        <div>{formik.errors.password}</div>
-      ) : null}
-
-
-      <label htmlFor="confirmPass">Confirm Password</label>
-      <input
-        id="confirmPass"
-        name="confirmPass"
-        type="password"
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        value={formik.values.confirmPass}
-      />
-      {formik.touched.confirmPass && formik.errors.confirmPass ? (
-        <div>{formik.errors.confirmPass}</div>
-      ) : null}
-
-      <button type="submit">Submit</button>
-
-    </form>
-  );
-};
-
-export default SignupForm;
+export default Registration;
