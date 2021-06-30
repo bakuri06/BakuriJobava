@@ -28,7 +28,9 @@ const App = () => {
             <Grid item xs={12}>
               <FirstContent />
             </Grid>
-            <MainContent />
+            <Grid item xs={12}>
+              <MainContent />
+            </Grid>
           </Grid>
         </Container>
       </>
