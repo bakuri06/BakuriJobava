@@ -17,34 +17,18 @@ const useStyles = makeStyles((theme) => ({
 
 export default function MainContent() {
     const classes = useStyles();
-
-    function FormRow() {
-        return (
-            <React.Fragment>
-                <Grid item xs={4}>
-                    <Card />
-                </Grid>
-                <Grid item xs={4}>
-                    <Card />
-                </Grid>
-                <Grid item xs={4}>
-                    <Card />
-                </Grid>
-            </React.Fragment>
-        );
-    }
-
+    
     return (
         <div className={classes.root}>
             <Grid container spacing={1}>
-                <Grid container item xs={12} spacing={3}>
-                    <FormRow />
+                <Grid container item xs={4} spacing={3}>
+                    <Card />
                 </Grid>
-                <Grid container item xs={12} spacing={3}>
-                    <FormRow />
+                <Grid container item xs={4} spacing={3}>
+                    <Card />
                 </Grid>
-                <Grid container item xs={12} spacing={3}>
-                    <FormRow />
+                <Grid container item xs={4} spacing={3}>
+                    <Card />
                 </Grid>
             </Grid>
         </div>
