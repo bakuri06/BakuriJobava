@@ -9,7 +9,6 @@ const Footer = () => {
         <Grid container justify='space-around' className='black'>
             <Grid item xl={3} md={3}>
                     <h5>About me</h5>
-
                     <p className="foot-desc mb-0">Here you can use rows and columns to organize your footer content. Lorem
                         ipsum dolor sit amet,
                         consectetur
