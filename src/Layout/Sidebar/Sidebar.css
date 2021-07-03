@@ -1,0 +1,18 @@
+.smth{
+    color: #6c757d;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+h5{
+    font-size:1.2rem;
+    padding:0;
+}
+.small, small {
+    font-size: 80%;
+    font-weight: 400;
+}
+
+.text-muted {
+    color: #6c757d;
+}
