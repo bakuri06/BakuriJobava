@@ -7,6 +7,8 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import { Button } from '@material-ui/core';
 import './style.css'
+import { useState } from 'react';
+import Flag from './Flag';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -14,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
     position: 'fixed',
     width: '100%',
     zIndex: '99999',
-    opacity:0.8
+    transition:'0.6s'
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -23,9 +25,9 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     
   },
-  paint: {
-    backgroundColor: 'white',
-    color: 'black'
+  paint:{
+    backgroundColor:'#fff',
+    transition:'0.6s'
   },
   button:{
       color: 'black',
@@ -36,23 +38,35 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Navbar() {
   const classes = useStyles();
+  const [navbar,setNavbar] = useState(false);
+
+  const  changeBackground = () => {
+    if(window.scrollY >= 80){
+      setNavbar(true);
+    } else {
+      setNavbar(false);
+    }
+  }
+
+  window.addEventListener('scroll',changeBackground);
 
   return (
     <div className={classes.root}>
-      <AppBar className={classes.paint} position="static">
+      <AppBar className={navbar ? classes.paint : classes.root} color='transparent' position="static">
         <Toolbar>
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-            <MenuIcon />
-          </IconButton>
           <Typography variant="h6" className={classes.title}>
               <i className="fab fa-mdb fa-3x" alt="mdb logo"></i>
           </Typography>
+
           <ul className='flexed'>
             <li>
               <a href="#!">
-                <span >1</span>
+                <span className='badge badge-pill'>1</span>
                 <i className="fas fa-shopping-cart pl-0"></i>
               </a>
+            </li>
+            <li>
+              <Flag />
             </li>
             <li >
               <a href="#!">

@@ -2,6 +2,7 @@ import { Box } from "@material-ui/core"
 import { Grid } from "@material-ui/core"
 import SelectLabel from "./SelectLabel"
 import './label.css'
+import PaginationBasic from "./PaginationBasic"
 
 const Label = () => {
     return (
@@ -18,7 +19,7 @@ const Label = () => {
                 </Box>
             </Grid>
             <Grid item xs={5} md={4}>
-                Pagination
+                <PaginationBasic />
             </Grid>
         </Grid>
     )

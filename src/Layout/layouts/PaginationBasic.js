@@ -14,10 +14,7 @@ export default function PaginationBasic() {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <Pagination count={10} />
-      <Pagination count={10} color="primary" />
-      <Pagination count={10} color="secondary" />
-      <Pagination count={10} disabled />
+      <Pagination count={3} />
     </div>
   );
 }

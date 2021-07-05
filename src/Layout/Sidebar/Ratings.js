@@ -4,7 +4,7 @@ import './Ratings.css'
 const Ratings = () => {
     return (
         <Box mt={4}>
-            <h3>Avg. Customer Review</h3>
+            <h3 className='margin_null'>Avg. Customer Review</h3>
 
             <a href="#!">
                 <ul className="rating">

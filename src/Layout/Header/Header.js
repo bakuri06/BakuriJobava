@@ -10,7 +10,6 @@ const useStyles = makeStyles((theme) => ({
     noPadding:{
         paddingLeft: "0px",
         paddingRight: "0px",
-        marginBottom:'30px',
         position:'static',
         zIndex:'9999'
     }

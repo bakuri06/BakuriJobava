@@ -1,6 +1,7 @@
 .rating{
     display: flex;
     align-items: center;
+    margin:0;
 }
 
 ul{
@@ -8,10 +9,13 @@ ul{
 }
 
 ul li{
-    margin-right:10px;
     list-style: none;
 }
 
 .fa-star{
     color:#1266f1;
+}
+
+.margin_null{
+    margin:0;
 }

@@ -23,7 +23,7 @@ const MainContent = ({ children }) => {
             <Container maxWidth='xl' classes={{root:classes.noPadding}}>
                 <Header />
             </Container>
-            <Container>
+            <Container maxWidth='lg'>
                 {children}
             </Container>
 

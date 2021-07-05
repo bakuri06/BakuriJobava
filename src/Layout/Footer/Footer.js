@@ -6,16 +6,51 @@ import './Footer.css'
 
 const Footer = () => {
     return (
-        <Grid container justify='space-around' className='black'>
-            <Grid item xl={3} md={3}>
+        <>
+            <Grid container>
+                <Grid className='blue' item xl={12} md={12} xs={12} alignItems='center'>
+
+                    <Box component='div' md={1} lg={1} xs={1}></Box>
+
+                    <Box component='div' md={5} lg={5} xs={5}>
+                        <h6 className='fb-ic'>Get connected with us on social networks!</h6>
+                    </Box>
+
+                    <Box component='div' md={5} lg={5} xs={5}>
+
+                        <a class="fb-ic">
+                            <i className="fab fa-facebook-f white-text mr-4"> </i>
+                        </a>
+                        <a className="tw-ic">
+                            <i className="fab fa-twitter white-text mr-4"> </i>
+                        </a>
+                        <a className="gplus-ic">
+                            <i className="fab fa-google-plus-g white-text mr-4"> </i>
+                        </a>
+                        <a className="li-ic">
+                            <i className="fab fa-linkedin-in white-text mr-4"> </i>
+                        </a>
+                        <a className="ins-ic">
+                            <i className="fab fa-instagram white-text"> </i>
+                        </a>
+
+                    </Box>
+
+                    <Box component='div' md={1} lg={1} xs={1}></Box>
+
+
+                </Grid>
+            </Grid>
+            <Grid container justify='space-around' className='black'>
+                <Grid item xl={3} md={3}>
                     <h5>About me</h5>
                     <p className="foot-desc mb-0">Here you can use rows and columns to organize your footer content. Lorem
                         ipsum dolor sit amet,
                         consectetur
                         adipisicing elit.
                     </p>
-            </Grid>
-            <Grid item xl={2} md={2}>
+                </Grid>
+                <Grid item xl={2} md={2}>
                     <h5>Products</h5>
 
                     <ul className="list-unstyled foot-desc">
@@ -32,9 +67,9 @@ const Footer = () => {
                             <a className="blacked" href="#!">Bootstrap Angular</a>
                         </li>
                     </ul>
-            </Grid>
+                </Grid>
 
-            <Grid item xl={2} md={2}>
+                <Grid item xl={2} md={2}>
                     <h5>Useful links</h5>
 
                     <ul>
@@ -51,9 +86,9 @@ const Footer = () => {
                             <a className="blacked" href="#!">Help</a>
                         </li>
                     </ul>
-            </Grid>
+                </Grid>
 
-            <Grid item xl={2} md={2}>
+                <Grid item xl={2} md={2}>
                     <h5>Contacts</h5>
 
                     <ul>
@@ -63,9 +98,10 @@ const Footer = () => {
                         <li ><span className="fa-li"><i className="far fa-envelope"></i></span>company@example.com</li>
                         <li><span className="fa-li"><i className="far fa-clock"></i></span>Monday - Friday: 10-17</li>
                     </ul>
-            </Grid>
+                </Grid>
 
-        </Grid>
+            </Grid>
+        </>
     )
 }
 

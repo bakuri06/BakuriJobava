@@ -5,6 +5,7 @@ import Card from '../layouts/Card'
 import { useState } from 'react';
 import Sidebar from '../Sidebar/Sidebar';
 import Label from '../layouts/Label';
+import { Box } from '@material-ui/core';
 
 const ItemList = () => {
     const [data,setData] = useState([
@@ -57,11 +58,11 @@ const ItemList = () => {
 
     return (
         <MainContent>
-            <Grid container >
+            <Grid container md>
                 <Grid item xs={4}>
                     <Sidebar />
                 </Grid>
-                <Grid item xs={8}>
+                <Grid item xs={8} mt={5} component='Box'>
                     <Grid container>
                         <Label />
                         {data.map(el => (

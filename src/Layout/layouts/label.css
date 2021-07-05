@@ -12,10 +12,6 @@
     display: flex;
 }
 
-a{
-    margin-right:10px;
-}
-
 .fa-th-list,.fa-th-large{
     color:black;
 }
