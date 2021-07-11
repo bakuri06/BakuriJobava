@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function Condition() {
+export default function Size() {
     const classes = useStyles();
     const [state, setState] = React.useState({
         gilad: true,
@@ -28,27 +28,28 @@ export default function Condition() {
     };
 
     const { gilad, jason, antoine } = state;
+    const error = [gilad, jason, antoine].filter((v) => v).length !== 2;
 
     return (
         <div className={classes.root}>
             <FormControl component="fieldset" className={classes.formControl}>
-                <FormLabel component="legend">Condition</FormLabel>
+                <FormLabel component="legend">Size</FormLabel>
                 <FormGroup>
                     <FormControlLabel
-                        control={<Checkbox checked={gilad} onChange={handleChange} name="New" />}
-                        label="New"
+                        control={<Checkbox checked={gilad} onChange={handleChange} name="32" />}
+                        label="32"
                     />
                     <FormControlLabel
-                        control={<Checkbox checked={jason} onChange={handleChange} name="Used" />}
-                        label="Used"
+                        control={<Checkbox checked={jason} onChange={handleChange} name="34" />}
+                        label="34"
                     />
                     <FormControlLabel
-                        control={<Checkbox checked={antoine} onChange={handleChange} name="Collectible" />}
-                        label="Collectible"
+                        control={<Checkbox checked={antoine} onChange={handleChange} name="36" />}
+                        label="36"
                     />
                     <FormControlLabel
-                        control={<Checkbox checked={antoine} onChange={handleChange} name="Renewed" />}
-                        label="Renewed"
+                        control={<Checkbox checked={antoine} onChange={handleChange} name="38" />}
+                        label="38"
                     />
                 </FormGroup>
             </FormControl>

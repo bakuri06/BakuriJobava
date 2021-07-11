@@ -15,6 +15,15 @@ a{
     color:white;
 }
 
+.fb-ic{
+    margin:20px 0;
+
+}
+
+.toFlex{
+    display: flex;
+}
+
 .blue{
     background-color: #1266F1;
     display: flex;

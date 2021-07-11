@@ -20,7 +20,6 @@ const Header = () => {
     return(
         <Container classes={{root:classes.noPadding}}maxWidth='xl' mb={4}>
             <Navbar />
-            <Image />
         </Container>
     )
 }

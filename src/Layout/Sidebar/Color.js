@@ -1,41 +1,34 @@
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import Fab from '@material-ui/core/Fab';
 import './Color.css'
-import { Box } from '@material-ui/core';
 
-const Color = () => {
+const useStyles = makeStyles((theme) => ({
+    root: {
+        '& > *': {
+            margin: '8px',
+        },
+    }
+}));
+
+export default function Color() {
+    const classes = useStyles();
+
     return (
-        <Box class="btn-group btn-group-toggle btn-color-group d-block mt-n2 ml-n2">
-            <label class="btn rounded-circle white border-inset-grey ">
-                <input type="checkbox" autocomplete="off" />
-            </label>
-            <label class="btn rounded-circle grey p-3 m-2 ">
-                <input type="checkbox" autocomplete="off" />
-            </label>
-            <label class="btn rounded-circle black p-3 m-2 ">
-                <input type="checkbox" autocomplete="off" />
-            </label>
-            <label class="btn rounded-circle green p-3 m-2">
-                <input type="checkbox" autocomplete="off" />
-            </label>
-            <label class="btn rounded-circle blue p-3 m-2 ">
-                <input type="checkbox" autocomplete="off" />
-            </label>
-            <label class="btn rounded-circle purple p-3 m-2 ">
-                <input type="checkbox" autocomplete="off" />
-            </label>
-            <label class="btn rounded-circle yellow p-3 m-2">
-                <input type="checkbox" autocomplete="off" />
-            </label>
-            <label class="btn rounded-circle indigo p-3 m-2">
-                <input type="checkbox" checked="" autocomplete="off" />
-            </label>
-            <label class="btn rounded-circle red p-3 m-2">
-                <input type="checkbox" autocomplete="off" />
-            </label>
-            <label class="btn rounded-circle orange p-3 m-2">
-                <input type="checkbox" autocomplete="off" />
-            </label>
-        </Box>
-    )
+        <>
+            <h6 className='noMargin'>Color</h6>
+            <div className={classes.root}>
+                <Fab style={{ backgroundColor: 'white' }} size='small' />
+                <Fab style={{ backgroundColor: 'gray' }} size='small' />
+                <Fab style={{ backgroundColor: 'black' }} size='small' />
+                <Fab style={{ backgroundColor: 'green' }} size='small' />
+                <Fab style={{ backgroundColor: 'blue' }} size='small' />
+                <Fab style={{ backgroundColor: 'purple' }} size='small' />
+                <Fab style={{ backgroundColor: 'yellow' }} size='small' />
+                <Fab style={{ backgroundColor: '#1266f1' }} size='small' />
+                <Fab style={{ backgroundColor: '#f44336' }} size='small' />
+                <Fab style={{ backgroundColor: '#ff9800' }} size='small' />
+            </div>
+        </>
+    );
 }
-
-export default Color;

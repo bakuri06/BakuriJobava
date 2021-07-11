@@ -10,8 +10,7 @@ const useStyles = makeStyles((theme) => ({
     },
     noPadding:{
         paddingLeft: "0px",
-        paddingRight: "0px",
-        marginBottom:'30px'
+        paddingRight: "0px"
     }
 }));
 
@@ -23,7 +22,7 @@ const MainContent = ({ children }) => {
             <Container maxWidth='xl' classes={{root:classes.noPadding}}>
                 <Header />
             </Container>
-            <Container maxWidth='lg'>
+            <Container maxWidth='xl' classes={{root:classes.noPadding}}>
                 {children}
             </Container>
 

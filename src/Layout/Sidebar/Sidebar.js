@@ -1,11 +1,14 @@
 import './Sidebar.css'
 import { Box } from '@material-ui/core';
 import FirstContent from './FirstContent'
-import Filter from '../Sidebar/Filter';
-import Condition from '../Sidebar/Condition';
-import Ratings from '../Sidebar/Ratings';
-import MinMax from '../Sidebar/MinMax';
-import PriceSlider from '../Sidebar/PriceSlider';
+import Filter from './Filter';
+import Condition from './Condition';
+import Ratings from './Ratings';
+import MinMax from './MinMax';
+import Price from './Price';
+import PriceSlider from './PriceSlider';
+import Size from './Size';
+import Color from './Color';
 
 const Sidebar = () => {
     return (
@@ -15,7 +18,10 @@ const Sidebar = () => {
             <Condition />
             <Ratings />
             <MinMax />
+            <Price />
             <PriceSlider />
+            <Size />
+            <Color />
         </Box>
     )
 }

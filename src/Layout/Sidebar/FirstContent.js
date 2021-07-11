@@ -1,7 +1,7 @@
 import './Sidebar.css'
 import { Box } from '@material-ui/core';
 
-const Sidebar = () => {
+const FirstContent = () => {
     return (
         <Box component='div' className='text-muted small'>
 
@@ -23,4 +23,4 @@ const Sidebar = () => {
     )
 }
 
-export default Sidebar;
+export default FirstContent;
