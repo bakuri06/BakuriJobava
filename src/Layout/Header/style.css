@@ -59,3 +59,17 @@ a{
     display:flex;
     align-items: center;
 }
+
+.fa-bars{
+    display: none;
+}
+
+@media screen and (max-width: 900px){
+    .flexed{
+        display: none;
+    }
+
+    .fa-bars{
+        display:block;
+    }
+}

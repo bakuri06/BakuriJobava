@@ -7,8 +7,12 @@ import { makeStyles } from "@material-ui/core";
 const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between'
+        alignItems:'center',
+        justifyContent: 'space-between',
+    },
+    secondContainer:{
+        display:'flex',
+        justifyContent:'space-between'
     }
 }));
 
@@ -48,8 +52,8 @@ const Footer = () => {
                 </Grid>
             </Grid>
             <Grid container justify='space-around' className='black'>
-                <Container classes={{ root: classes.root }}>
-                    <Grid item xl={3} md={3} xs={6} sm={6}>
+                <Container classes={{root:classes.secondContainer}}>
+                    <Grid item lg={3} md={3} xs={12} sm={6}>
                         <h5>About me</h5>
                         <p className="foot-desc mb-0">Here you can use rows and columns to organize your footer content. Lorem
                             ipsum dolor sit amet,
@@ -57,7 +61,7 @@ const Footer = () => {
                             adipisicing elit.
                         </p>
                     </Grid>
-                    <Grid item xl={2} md={2} xs={6} sm={6}>
+                    <Grid item lg={2} md={2} xs={12} sm={6}>
                         <h5>Products</h5>
 
                         <ul className="list-unstyled foot-desc">
@@ -76,7 +80,7 @@ const Footer = () => {
                         </ul>
                     </Grid>
 
-                    <Grid item xl={2} md={2} xs={6} sm={6}>
+                    <Grid item lg={2} md={2} xs={12} sm={6}>
                         <h5>Useful links</h5>
 
                         <ul>
@@ -95,7 +99,7 @@ const Footer = () => {
                         </ul>
                     </Grid>
 
-                    <Grid item xl={2} md={2} xs={6} sm={6}>
+                    <Grid item lg={2} md={2} xs={12} sm={6}>
                         <h5>Contacts</h5>
 
                         <ul>
@@ -106,10 +110,9 @@ const Footer = () => {
                             <li><span className="fa-li"><i className="far fa-clock"></i></span>Monday - Friday: 10-17</li>
                         </ul>
                     </Grid>
-
                 </Container>
-
             </Grid>
+
         </>
     )
 }

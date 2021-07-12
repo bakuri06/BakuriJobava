@@ -60,6 +60,7 @@ export default function Navbar() {
           <Typography variant="h6" className={classes.title}>
             <i className="fab fa-mdb fa-3x" alt="mdb logo"></i>
           </Typography>
+          <i className="fas fa-bars"></i>
 
           <ul className='flexed'>
             <li>

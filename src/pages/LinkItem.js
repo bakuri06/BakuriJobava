@@ -10,6 +10,9 @@ import { CardMedia } from '@material-ui/core';
 import Card from '@material-ui/core/Card';
 import { BasicTable } from '../Layout/layouts/BasicTable';
 import { Container } from '@material-ui/core';
+import Counter from '../Layout/layouts/Counter';
+import { Button } from '@material-ui/core';
+import SelectedSize from '../Layout/layouts/SelectSize';
 
 const useStyles = makeStyles({
     root: {
@@ -108,7 +111,7 @@ const LinkItem = () => {
             </Grid>
 
             <Grid container>
-                <Container maxWidth='lg' style={{display:'flex'}}>
+                <Container maxWidth='lg' style={{ display: 'flex' }}>
                     <Grid item xs={6} lg={6} md={6}>
                         <Grid container justify='space-between' mb={4}>
                             <Grid item xs={12} lg={12} md={12}>
@@ -122,7 +125,7 @@ const LinkItem = () => {
                                     </CardActionArea>
                                 </Card>
                             </Grid>
-                            <Grid item xs={3} lg={3} md={3}>
+                            <Grid style={{ marginBottom: '30px', marginTop: '30px' }} item xs={3} lg={3} md={3}>
                                 <Card>
                                     <CardActionArea>
                                         <CardMedia
@@ -133,7 +136,7 @@ const LinkItem = () => {
                                     </CardActionArea>
                                 </Card>
                             </Grid>
-                            <Grid item xs={3} lg={3} md={3}>
+                            <Grid style={{ marginBottom: '30px', marginTop: '30px' }} item xs={3} lg={3} md={3}>
                                 <Card>
                                     <CardActionArea>
                                         <CardMedia
@@ -144,7 +147,7 @@ const LinkItem = () => {
                                     </CardActionArea>
                                 </Card>
                             </Grid>
-                            <Grid style={{marginBottom:'30px'}} item xs={3} lg={3} md={3}>
+                            <Grid style={{ marginBottom: '30px', marginTop: '30px' }} item xs={3} lg={3} md={3}>
                                 <Card>
                                     <CardActionArea>
                                         <CardMedia
@@ -184,6 +187,10 @@ const LinkItem = () => {
                             officia quis dolore quos sapiente tempore alias.
                         </p>
                         <BasicTable />
+                        <Box component='div' display='flex'>
+                            <Counter />
+                            <SelectedSize />
+                        </Box>
                     </Grid>
                 </Container>
             </Grid>

@@ -78,7 +78,7 @@ const ItemList = () => {
                         <Grid container>
                             <Label />
                             {data.map(el => (
-                                <Grid item xs={4} md={4} sm={6} mb={5} component='Box'>
+                                <Grid item xs={4} lg={4} md={6} sm={6} mb={5}>
                                     <Card data={el} />
                                 </Grid>
                             ))}
