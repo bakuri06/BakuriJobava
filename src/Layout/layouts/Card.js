@@ -22,7 +22,8 @@ const useStyles = makeStyles({
     forFlex: {
         display: 'flex',
         flexDirection: 'column',
-        alignItems: 'center'
+        alignItems: 'center',
+        height:'150px'
     }
 });
 
@@ -35,8 +36,6 @@ export default function MediaCard({ data: { title, price, img, id } }) {
             pathname: SINGLE_LIST.replace(':id', id),
         })
     }
-
-    console.log(history);
 
     return (
         <MLink component={Link} to={SINGLE_LIST.replace(':id', id)}>

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Container } from '@material-ui/core';
-import Header from '../Header/Header';
+import Header from '../header/Header';
 import { makeStyles } from '@material-ui/core';
-import Footer from '../Footer/Footer';
+import Footer from '../footer/Footer';
 
 const useStyles = makeStyles((theme) => ({
     menu: {

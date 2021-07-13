@@ -1,8 +1,8 @@
 import React from 'react'
 import Home from "./pages/Home";
-import ItemList from "./pages/ItemList";
-import LinkItem from "./pages/LinkItem";
 import ScrollToTop from './ScrollToTop';
+import ProductList from './pages/ProductList'
+import SingleProduct from './pages/SingleProduct'
 
 
 import {
@@ -21,8 +21,8 @@ const App = () => {
         <Router>
             <ScrollToTop />
             <Switch>
-                <Route path={PRODUCT_LIST} component={ItemList}/>
-                <Route path={SINGLE_LIST} component={LinkItem}/>
+                <Route path={PRODUCT_LIST} component={ProductList}/>
+                <Route path={SINGLE_LIST} component={SingleProduct}/>
                 <Route path={HOMEPAGE} component={Home}/>
             </Switch>
         </Router>

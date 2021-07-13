@@ -7,12 +7,14 @@ import { makeStyles } from "@material-ui/core";
 const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
-        alignItems:'center',
-        justifyContent: 'space-between',
+        alignItems: 'center',
+        justifyContent: 'space-between'
     },
-    secondContainer:{
-        display:'flex',
-        justifyContent:'space-between'
+    secondContainer: {
+        display: 'flex',
+        flexWrap: 'wrap',
+        alignItems: 'center',
+        justifyContent: 'space-between',
     }
 }));
 
@@ -52,7 +54,7 @@ const Footer = () => {
                 </Grid>
             </Grid>
             <Grid container justify='space-around' className='black'>
-                <Container classes={{root:classes.secondContainer}}>
+                <Container maxWidth='lg' classes={{ root: classes.secondContainer }}>
                     <Grid item lg={3} md={3} xs={12} sm={6}>
                         <h5>About me</h5>
                         <p className="foot-desc mb-0">Here you can use rows and columns to organize your footer content. Lorem
@@ -112,6 +114,7 @@ const Footer = () => {
                     </Grid>
                 </Container>
             </Grid>
+
 
         </>
     )

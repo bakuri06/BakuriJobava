@@ -7,6 +7,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
 import './Counter.css'
+import { Box } from '@material-ui/core';
 
 const useStyles = makeStyles({
     root: {
@@ -50,8 +51,6 @@ const useStyles = makeStyles({
     resetForm: {
         display: 'flex',
         flexDirection: 'row',
-        marginLeft:'20px'
-
     }
 
 });
@@ -75,13 +74,13 @@ function StyledRadio(props) {
 export default function SelectedSize() {
     const classes = useStyles();
     return (
-        <FormControl component="legend" style={{alignItems:'center'}}>
-            <FormLabel component="p" style={{marginTop:'20px'}}>Select size</FormLabel>
+        <Box ml={'15px'}>
+            <FormLabel component="p">Select size</FormLabel>
             <RadioGroup classes={{root:classes.resetForm}} defaultValue="Small" aria-label="Small" name="customized-radios">
                 <FormControlLabel value="Small" control={<StyledRadio />} label="Small" />
                 <FormControlLabel value="Medium" control={<StyledRadio />} label="Medium" />
                 <FormControlLabel value="Large" control={<StyledRadio />} label="Large" />
             </RadioGroup>
-        </FormControl>
+        </Box>
     );
 }
