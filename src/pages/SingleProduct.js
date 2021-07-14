@@ -8,7 +8,7 @@ import { makeStyles } from '@material-ui/core';
 import { CardActionArea } from '@material-ui/core';
 import { CardMedia } from '@material-ui/core';
 import Card from '@material-ui/core/Card';
-import { BasicTable } from '../components/BasicTable';
+// import { BasicTable } from '../components/BasicTable';
 import { Container } from '@material-ui/core';
 import Counter from '../components/Counter'
 import SelectedSize from '../components/SelectSize'
@@ -159,7 +159,7 @@ const SingleProduct = () => {
                             <p className="pMargins"><span ><strong>${data.price}</strong></span></p>
                             <p>{data.description}
                             </p>
-                            <BasicTable data={data}/>
+                            {/* <BasicTable/>/ data={data}/> */}
                             <Box component='div' display='flex'>
                                 <Counter />
                                 <SelectedSize />
