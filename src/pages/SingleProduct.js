@@ -8,7 +8,7 @@ import { makeStyles } from '@material-ui/core';
 import { CardActionArea } from '@material-ui/core';
 import { CardMedia } from '@material-ui/core';
 import Card from '@material-ui/core/Card';
-// import { BasicTable } from '../components/BasicTable';
+import { BasicTable } from '../components/BasicTable';
 import { Container } from '@material-ui/core';
 import Counter from '../components/Counter'
 import SelectedSize from '../components/SelectSize'
@@ -17,7 +17,7 @@ import { useEffect } from 'react';
 import Loader from '../components/Loader';
 import CustomizedButtons from '../components/CustomizedButtons';
 import NavTabs from '../components/NavTabs';
-import Api from '../Api';
+// import Api from '../Api';
 
 const useStyles = makeStyles({
     root: {
@@ -55,17 +55,14 @@ const SingleProduct = () => {
         fetch(`https://fakestoreapi.com/products/${id}`)
             .then(res => res.json())
             .then(el => {
-                console.log(el);
                 setData({
                     title: el.title,
                     price: el.price,
                     img: el.image,
                     id: el.id,
                     description: el.description
-                }
-                )
+                })
             })
-            //Api.getSingleItem(id)
             .catch(err => console.log(err))
             .finally(() => {
                 setLoading(false);
@@ -85,7 +82,7 @@ const SingleProduct = () => {
             </Grid>
 
             <Grid container>
-                <Loader>
+                <Loader isLoading={loading}>
                     {!!data.hasOwnProperty('title') && <Container maxWidth='lg' style={{ display: 'flex' }}>
                         <Grid item xs={6} lg={6} md={6}>
                             <Grid container justify='space-between' mb={4}>
@@ -159,7 +156,7 @@ const SingleProduct = () => {
                             <p className="pMargins"><span ><strong>${data.price}</strong></span></p>
                             <p>{data.description}
                             </p>
-                            {/* <BasicTable/>/ data={data}/> */}
+                            <BasicTable data={data}/>
                             <Box component='div' display='flex'>
                                 <Counter />
                                 <SelectedSize />
