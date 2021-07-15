@@ -10,8 +10,6 @@ import './NavTabs.css'
 import { Link, useRouteMatch } from 'react-router-dom';
 import { Button, TextField } from '@material-ui/core';
 import { SINGLE_LIST } from '../routes';
-import { Route } from "react-router-dom"
-import Switch from 'react-router-dom'
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -73,7 +71,7 @@ const useStyles = makeStyles((theme) => ({
 export default function NavTabs({ data: { title, price, img, id, description } }) {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
-  let {path,url} = useRouteMatch();
+  let { path, url } = useRouteMatch();
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -88,9 +86,9 @@ export default function NavTabs({ data: { title, price, img, id, description } }
           onChange={handleChange}
           aria-label="nav tabs example"
         >
-          <LinkTab label="Description" href="/description" {...a11yProps(0)} component={Link} to={SINGLE_LIST}/>
-          <LinkTab label="Information" href="/information" {...a11yProps(1)}  component={Link} to={url + '/information'}/>
-          <LinkTab label="Reviews" href="/reviews" {...a11yProps(2)}  component={Link} to={url + '/reviews'}/>
+          <LinkTab label="Description" href="/description" {...a11yProps(0)} to={SINGLE_LIST} />
+          <LinkTab label="Information" href="/information" {...a11yProps(1)} component={Link} to={url + '/information'} />
+          <LinkTab label="Reviews" href="/reviews" {...a11yProps(2)} component={Link} to={url + '/reviews'} />
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
@@ -224,6 +222,9 @@ export default function NavTabs({ data: { title, price, img, id, description } }
           </Box>
         </Box>
       </TabPanel>
+
+
+
     </Box>
   );
 }

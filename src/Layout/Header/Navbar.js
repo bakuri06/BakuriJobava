@@ -12,6 +12,7 @@ import {Link} from "react-router-dom";
 import { HOMEPAGE } from '../../routes';
 import { PRODUCT_LIST } from '../../routes';
 import { SINGLE_LIST } from '../../routes';
+import { ADMIN } from '../../routes';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -67,6 +68,7 @@ export default function Navbar() {
               <MLink component={Link} to={HOMEPAGE}>Home</MLink>
               <MLink component={Link} to={PRODUCT_LIST}>List</MLink>
               <MLink component={Link} to={SINGLE_LIST}>Single</MLink>
+              <MLink component={Link} to={ADMIN}>Admin</MLink>
             </li>
             <li>
               <a href="#!">

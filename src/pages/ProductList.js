@@ -1,17 +1,15 @@
 import React from 'react'
 import MainContent from '../layout/layouts/MainContent';
 import Grid from '@material-ui/core/Grid';
-import Card from '../layout/layouts/Card'
+import Card from '../components/Card'
 import { useState } from 'react';
 import Sidebar from '../components/sidebar/Sidebar';
-import Label from '../components/Label';
+import Label from '../components/details/Label';
 import { Container } from '@material-ui/core';
 import Image from '../layout/header/Image'
-import productData from '../data'
+import productData from '../api/data'
 import Loader from '../components/Loader';
 import { useEffect } from 'react';
-import { makeStyles } from "@material-ui/core";
-import Api from '../Api';
 
 const ProductList = () => {
     const [data, setData] = useState(productData);

@@ -6,7 +6,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import { Link as MLink } from "@material-ui/core"
-import { SINGLE_LIST } from '../../routes';
+import { SINGLE_LIST } from '../routes';
 import { Link } from "react-router-dom";
 import { useHistory } from 'react-router';
 

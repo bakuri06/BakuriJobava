@@ -8,16 +8,15 @@ import { makeStyles } from '@material-ui/core';
 import { CardActionArea } from '@material-ui/core';
 import { CardMedia } from '@material-ui/core';
 import Card from '@material-ui/core/Card';
-import { BasicTable } from '../components/BasicTable';
+import { BasicTable } from '../components/details/BasicTable';
 import { Container } from '@material-ui/core';
-import Counter from '../components/Counter'
-import SelectedSize from '../components/SelectSize'
+import Counter from '../components/details/Counter'
+import SelectedSize from '../components/details/SelectSize'
 import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import Loader from '../components/Loader';
-import CustomizedButtons from '../components/CustomizedButtons';
-import NavTabs from '../components/NavTabs';
-// import Api from '../Api';
+import CustomizedButtons from '../components/details/CustomizedButtons';
+import NavTabs from '../components/NavTabs'
 
 const useStyles = makeStyles({
     root: {
@@ -156,18 +155,18 @@ const SingleProduct = () => {
                             <p className="pMargins"><span ><strong>${data.price}</strong></span></p>
                             <p>{data.description}
                             </p>
-                            <BasicTable data={data}/>
+                            <BasicTable data={data} />
                             <Box component='div' display='flex'>
                                 <Counter />
                                 <SelectedSize />
                             </Box>
-                            <Box component='div' display='flex'  mt={2}>
+                            <Box component='div' display='flex' mt={2}>
                                 <CustomizedButtons></CustomizedButtons>
                             </Box>
                         </Grid>
                     </Container>}
                     <Container maxWidth='lg' style={{ display: 'flex' }}>
-                        <NavTabs data={data}/>
+                        <NavTabs data={data} />
                     </Container>
                 </Loader>
 
